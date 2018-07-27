@@ -1,0 +1,42 @@
+1) key 생성
+C:\Program Files\Java\jdk1.8.0_172\bin\keytool -genkey -v -keystore dcpApp-release-key.keystore -alias dcpApp-key-alias -keyalg RSA -keysize 2048 -validity 10000
+
+2) key 복사
+~/android/app 에 파일복사 'dcpApp-release-key.keystore'
+
+3) ~/android/gradle.properties 편집
+
+MYAPP_RELEASE_STORE_FILE=dcpApp-release-key.keystore
+MYAPP_RELEASE_KEY_ALIAS=dcpApp-key-alias
+MYAPP_RELEASE_STORE_PASSWORD=비밀번호
+MYAPP_RELEASE_KEY_PASSWORD=비밀번호
+
+4) ~/android/app/build.gradle 편집
+...
+android {
+    ...
+    defaultConfig { ... }
+    signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+    buildTypes {
+        release {
+            ...
+            signingConfig signingConfigs.release
+        }
+    }
+}
+...
+
+5) Build
+$ cd android
+$ ./gradlew assembleRelease
+
+apk 위치 :android/app/build/outputs/apk/app-release.apk
