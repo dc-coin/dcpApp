@@ -46,20 +46,25 @@ export default {
   },
 
   contentSearchBar : {
-    height: 60,
-    borderBottomColor: "#7f7f7f",
-    borderBottomWidth: 1,
-    marginBottom : 5 
+    height: 50,
+    marginBottom : 0
   },
 
   contentSearchBarInput : {
     borderColor: '#b29c54',
     borderWidth:2,
+    height:40,
     backgroundColor:'#fff2cc'
   },
 
   contentSearchBarButton : {
-    height: 50
+    height: 40,
+    paddingHorizontal : 5
+  },
+
+  resultListView : {
+    borderTopColor: "#7f7f7f",
+    borderTopWidth: 1
   },
 
   resultListItem : {
@@ -67,12 +72,27 @@ export default {
     marginTop : 0,
     marginBottom : 0,
     marginRight : 0,
-    padding:0
+    paddingTop:10,
+    paddingBottom:10
   },
 
-  resultCol : {
-    height : 45,
-    //backgroundColor:'#fff2cc',
-    justifyContent: 'center'    
+  resultCol1 : {
+    marginLeft : 10,
+    alignSelf: 'center'
+  },
+  resultCol2 : {
+    width: 70,
+    alignSelf: 'center'
+  },
+  resultCol3 : {
+    width: 70,
+    alignItems: 'flex-end',
+    flexDirection: 'row-reverse',
+    alignSelf: 'center'
+  },
+  dpAmount : {
+    textAlign: "center",
+    fontSize:13
   }
+
 };

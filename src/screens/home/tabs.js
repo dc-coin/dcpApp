@@ -3,7 +3,9 @@ import {
   Content,
   Tabs,
   Tab,
-  ScrollableTab
+  ScrollableTab,
+  TabHeading,
+  Text
 } from "native-base";
 
 import stringObj from "../../18n";
@@ -14,7 +16,7 @@ export default class SubTab extends Component {
   render() {
     return (
       <Tabs
-        renderTabBar={() => <ScrollableTab />}>
+        renderTabBar={() => <ScrollableTab style={{height:40}}/>}>
         <Tab heading={stringObj.main.cate2.ranking}>
           <TabOne />
         </Tab>
@@ -26,8 +28,9 @@ export default class SubTab extends Component {
         </Tab>
         <Tab heading={stringObj.main.cate2.genre}>
           <TabOne />
-        </Tab>
+        </Tab>        
       </Tabs>
     );
   }
 }
+

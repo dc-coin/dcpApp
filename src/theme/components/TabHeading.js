@@ -10,7 +10,7 @@ export default (variables = variable) => {
     alignItems: "center",
     justifyContent: "center",
     ".scrollable": {
-      paddingHorizontal: 20,
+      paddingHorizontal: 24,
       flex: platform === "android" ? 0 : 1,
       minWidth: platform === "android" ? undefined : 60
     },

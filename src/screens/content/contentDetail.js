@@ -177,14 +177,14 @@ class ContentDetail extends Component {
                             <Text numberOfLines={1}>{data.title}</Text>
                           </Row>
                           <Row style={{}}>
-                            <Button small bordered style={[{ height: 14, marginTop:3, marginRight:5}, {borderColor:btnColor}]} >
+                            <Button small bordered style={[{ height: 12, marginTop:3, marginRight:5}, {borderColor:btnColor}]} >
                               <Text style={{ fontSize: 8, color:btnColor }}>{data.tagName}</Text>
                             </Button>
                             <Text note numberOfLines={1}>{data.time} 조회 {data.readCount} | 추천 {data.recommend}</Text>
                           </Row>
                         </Col>
                         <Col style={{ width: 50, alignItems: 'flex-end', alignSelf: 'center', flexDirection: 'row-reverse' }}>
-                          <Button small bordered>
+                          <Button small bordered style={[{ height: 24}]}>
                             <Text>{data.commentCount}</Text>
                           </Button>
                         </Col>

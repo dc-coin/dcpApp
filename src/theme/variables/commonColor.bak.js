@@ -34,7 +34,7 @@ export default {
   // Button
   btnFontFamily: platform === "ios" ? "System" : "Roboto_medium",
   btnDisabledBg: "#b5b5b5",
-  buttonPadding: 4,
+  buttonPadding: 6,
   get btnPrimaryBg() {
     return this.brandPrimary;
   },
@@ -88,18 +88,18 @@ export default {
   cardDefaultBg: "#fff",
   cardBorderColor: "#ccc",
   cardBorderRadius: 2,
-  cardItemPadding: platform === "ios" ? 8 : 10,
+  cardItemPadding: platform === "ios" ? 10 : 12,
 
   // CheckBox
   CheckboxRadius: platform === "ios" ? 13 : 0,
   CheckboxBorderWidth: platform === "ios" ? 1 : 2,
-  CheckboxPaddingLeft: platform === "ios" ? 3 : 1,
-  CheckboxPaddingBottom: platform === "ios" ? 0 : 4,
-  CheckboxIconSize: platform === "ios" ? 19 : 14,
+  CheckboxPaddingLeft: platform === "ios" ? 4 : 2,
+  CheckboxPaddingBottom: platform === "ios" ? 0 : 5,
+  CheckboxIconSize: platform === "ios" ? 21 : 16,
   CheckboxIconMarginTop: platform === "ios" ? undefined : 1,
-  CheckboxFontSize: platform === "ios" ? 21 / 0.9 : 15,
+  CheckboxFontSize: platform === "ios" ? 23 / 0.9 : 17,
   checkboxBgColor: "#039BE5",
-  checkboxSize: 18,
+  checkboxSize: 20,
   checkboxTickColor: "#fff",
 
   // Color
@@ -116,9 +116,9 @@ export default {
   datePickerBg: "transparent",
 
   // Font
-  DefaultFontSize: 14,
+  DefaultFontSize: 16,
   fontFamily: platform === "ios" ? "System" : "Roboto",
-  fontSizeBase: 13,
+  fontSizeBase: 15,
   get fontSizeH1() {
     return this.fontSizeBase * 1.8;
   },
@@ -130,13 +130,13 @@ export default {
   },
 
   // Footer
-  footerHeight: 50,
+  footerHeight: 55,
   footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#275787",
   footerPaddingBottom: 0,
 
   // FooterTab
   tabBarTextColor: platform === "ios" ? "#737373" : "#bfc6ea",
-  tabBarTextSize: platform === "ios" ? 12 : 9,
+  tabBarTextSize: platform === "ios" ? 14 : 11,
   activeTab: platform === "ios" ? "#007aff" : "#fff",
   sTabBarActiveTextColor: "#007aff",
   tabBarActiveTextColor: platform === "ios" ? "#2874F0" : "#fff",
@@ -146,7 +146,7 @@ export default {
   toolbarBtnColor: platform === "ios" ? "#007aff" : "#fff",
   toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#275787",
   toolbarHeight: platform === "ios" ? 64 : 56,
-  toolbarSearchIconSize: platform === "ios" ? 18 : 21,
+  toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
   searchBarHeight: platform === "ios" ? 30 : 40,
   searchBarInputHeight: platform === "ios" ? 30 : 50,
@@ -162,11 +162,11 @@ export default {
 
   // Icon
   iconFamily: "Ionicons",
-  iconFontSize: platform === "ios" ? 28 : 26,
-  iconHeaderSize: platform === "ios" ? 29 : 20,
+  iconFontSize: platform === "ios" ? 30 : 28,
+  iconHeaderSize: platform === "ios" ? 33 : 24,
 
   // InputGroup
-  inputFontSize: 15,
+  inputFontSize: 17,
   inputBorderColor: "#D9D5DC",
   inputSuccessBorderColor: "#2b8339",
   inputErrorBorderColor: "#ed2f2f",
@@ -179,20 +179,20 @@ export default {
   },
 
   // Line Height
-  btnLineHeight: 17,
-  lineHeightH1: 30,
-  lineHeightH2: 25,
-  lineHeightH3: 20,
-  lineHeight: platform === "ios" ? 18 : 22,
+  btnLineHeight: 19,
+  lineHeightH1: 32,
+  lineHeightH2: 27,
+  lineHeightH3: 22,
+  lineHeight: platform === "ios" ? 20 : 24,
 
   // List
   listBg: "transparent",
   listBorderColor: "#c9c9c9",
   listDividerBg: "#f4f4f4",
   listBtnUnderlayColor: "#DDD",
-  listItemPadding: platform === "ios" ? 8 : 10,
+  listItemPadding: platform === "ios" ? 10 : 12,
   listNoteColor: "#808080",
-  listNoteSize: 11,
+  listNoteSize: 13,
   listItemSelected: platform === "ios" ? "#007aff" : "#275787",
 
   // Progress Bar
@@ -200,9 +200,9 @@ export default {
   inverseProgressColor: "#1A191B",
 
   // Radio Button
-  radioBtnSize: platform === "ios" ? 23 : 21,
+  radioBtnSize: platform === "ios" ? 25 : 23,
   radioSelectedColorAndroid: "#275787",
-  radioBtnLineHeight: platform === "ios" ? 27 : 22,
+  radioBtnLineHeight: platform === "ios" ? 29 : 24,
   get radioColor() {
     return this.brandPrimary;
   },
@@ -228,29 +228,29 @@ export default {
 
   // Tabs
   tabBgColor: "#F8F8F8",
-  tabFontSize: 13,
+  tabFontSize: 15,
 
   // Text
   textColor: "#000",
   inverseTextColor: "#fff",
-  noteFontSize: 12,
+  noteFontSize: 14,
   get defaultTextColor() {
     return this.textColor;
   },
 
   // Title
   titleFontfamily: platform === "ios" ? "System" : "Roboto_medium",
-  titleFontSize: platform === "ios" ? 15 : 17,
-  subTitleFontSize: platform === "ios" ? 9 : 12,
+  titleFontSize: platform === "ios" ? 17 : 19,
+  subTitleFontSize: platform === "ios" ? 11 : 14,
   subtitleColor: platform === "ios" ? "#000" : "#fff",
   titleFontColor: platform === "ios" ? "#000" : "#fff",
 
   // Other
   borderRadiusBase: platform === "ios" ? 5 : 2,
   borderWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
-  contentPadding: 8,
+  contentPadding: 10,
   dropdownLinkColor: "#414142",
-  inputLineHeight: 22,
+  inputLineHeight: 24,
   deviceWidth,
   deviceHeight,
   isIphoneX,

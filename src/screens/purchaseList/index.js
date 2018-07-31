@@ -131,30 +131,32 @@ class PurchaseList extends Component {
               </Form>
             </Content>
           </Row>
-          <Row>
-            <List 
+          <Row style={styles.resultListView}>
+            <List
               dataArray={datas}
               renderRow={(data, sectionID, rowID, highlightRow) => {
                 let evenRow = rowID % 2 == 0;
                 var bg = evenRow ? '#ddeaf6' : undefined;
                 return (
-                  <ListItem style={[{ backgroundColor: bg}, styles.resultListItem]}>
-                    <Grid>
-                      <Col size={5} style={styles.resultCol}>
-                        <Content style={styles.marginL20}>
+                  <ListItem style={[{ backgroundColor: bg }, styles.resultListItem]}>
+                    <Grid style={{}}>
+                      <Col style={[styles.marginL10, styles.resultCol1]}>
+                        <Row>
                           <Text numberOfLines={1}>{data.title}</Text>
+                        </Row>
+                        <Row>
                           <Text note numberOfLines={1}>{data.subTitle}</Text>
-                        </Content>
+                        </Row>
                       </Col>
-                      <Col size={2} style={styles.resultCol}>
-                        <Text style={{ textAlign: "center" }}>{data.dp} DP</Text>
+                      <Col style={styles.resultCol2}>
+                        <Text style={styles.dpAmount}>{data.dp} DP</Text>
                       </Col>
-                      <Col size={2.5} style={styles.resultCol}>
+                      <Col style={styles.resultCol3}>
                         <Text note numberOfLines={1} >{data.time}</Text>
                       </Col>
                     </Grid>
                   </ListItem>);
-                }
+              }
               }
             />
           </Row>

@@ -51,7 +51,7 @@ class Setting extends Component {
             <ListItem itemDivider>
               <Text>{stringObj.setting.language.name}</Text>
             </ListItem>
-            <ListItem>
+            <ListItem style={{height:50}}>
               <Picker
                 mode="dialog"
                 iosIcon={<Icon name="ios-arrow-down-outline" />}

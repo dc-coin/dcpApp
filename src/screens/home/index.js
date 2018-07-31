@@ -51,32 +51,14 @@ class Home extends Component {
           <Row>
             <Tabs
               locked={true}
-              style={{ elevation: 3 }}>
-              <Tab
-                heading={
-                  <TabHeading>
-                    <Text>{stringObj.main.cate1.best}</Text>
-                  </TabHeading>
-                }
-              >
+              style={{ elevation: 3}}>
+              <Tab heading={stringObj.main.cate1.best}>
                 <TabCateBest />
               </Tab>
-              <Tab
-                heading={
-                  <TabHeading>
-                    <Text>{stringObj.main.cate1.charge}</Text>
-                  </TabHeading>
-                }
-              >
+              <Tab heading={stringObj.main.cate1.charge}>
                 <TabCateBest />
               </Tab>
-              <Tab
-                heading={
-                  <TabHeading>
-                    <Text>{stringObj.main.cate1.free}</Text>
-                  </TabHeading>
-                }
-              >
+              <Tab heading={stringObj.main.cate1.free}>
                 <TabCateBest />
               </Tab>
             </Tabs>

@@ -15,77 +15,77 @@ const datas = [
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "09:37:27"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.13"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.10"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.09"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.08"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.08"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.08"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.08"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.08"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.08"
   },
   {
     title: "콘텐츠 타이틀",
     subTitle: "92. 콘텐츠 소제목",
-    userId : "구매자 아이디",
+    userId: "구매자 아이디",
     dp: 1,
     time: "2018.07.08"
   }
@@ -142,7 +142,7 @@ class SalesList extends Component {
               </Form>
             </Content>
           </Row>
-          <Row>
+          <Row style={styles.resultListView}>
             <List
               dataArray={datas}
               renderRow={(data, sectionID, rowID, highlightRow) => {
@@ -151,19 +151,21 @@ class SalesList extends Component {
                 return (
                   <ListItem style={[{ backgroundColor: bg }, styles.resultListItem]}>
                     <Grid>
-                      <Col size={4} style={styles.resultCol}>
-                        <Content style={styles.marginL20}>
+                      <Col style={[styles.marginL10, styles.resultCol1]}>
+                        <Row>
                           <Text numberOfLines={1}>{data.title}</Text>
+                        </Row>
+                        <Row>
                           <Text note numberOfLines={1}>{data.subTitle}</Text>
-                        </Content>
+                        </Row>
                       </Col>
-                      <Col size={3} style={styles.resultCol}>
+                      <Col style={styles.resultCol2}>
                         <Text note numberOfLines={1} >{data.userId}</Text>
                       </Col>
-                      <Col size={2} style={styles.resultCol}>
-                        <Text style={{ textAlign: "center" }}>{data.dp} DP</Text>
+                      <Col style={styles.resultCol3}>
+                        <Text style={styles.dpAmount}>{data.dp} DP</Text>
                       </Col>
-                      <Col size={2.5} style={styles.resultCol}>
+                      <Col style={styles.resultCol4}>
                         <Text note numberOfLines={1} >{data.time}</Text>
                       </Col>
                     </Grid>
