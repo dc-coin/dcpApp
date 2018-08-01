@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 
 import {
-  Container, Header, Content, List, ListItem, Text, View,
-  Left, Right, Button, Title, Body, Icon, Picker, Form
+  Container, Content, 
+  List, ListItem,
+  Text, View, Icon, Picker
 } from "native-base";
+
+import { DefaultHeader } from './../header';
+
 import styles from "./styles";
 import stringObj from "../../18n/";
 
@@ -30,20 +34,7 @@ class Setting extends Component {
 
     return (
       <Container style={styles.container}>
-        <Header>
-          <Left>
-            <Button
-              transparent
-              onPress={() => this.props.navigation.openDrawer()}
-            >
-              <Icon name="menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>{stringObj.setting.header_title}</Title>
-          </Body>
-          <Right />
-        </Header>
+        <DefaultHeader navigation={this.props.navigation} title={stringObj.setting.header_title} />
 
         <Content>
           <List>

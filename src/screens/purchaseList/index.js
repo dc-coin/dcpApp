@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 
 import {
-  Container, Header, Content, List, ListItem, Text,
-  Left, Right, Button, Title, Body, Icon,
-  Form, Item, Input,
+  Container, Content, 
+  List, ListItem,
+  Text, Button, Icon, Form, Item, Input,
   H3
 } from "native-base";
 import { Col, Row, Grid } from 'react-native-easy-grid';
+
+import { DefaultHeader } from './../header';
+import { MainFooter } from "../footer";
 
 import styles from "./styles";
 import stringObj from "../../18n/";
@@ -88,20 +91,7 @@ class PurchaseList extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <Header>
-          <Left>
-            <Button
-              transparent
-              onPress={() => this.props.navigation.openDrawer()}
-            >
-              <Icon name="menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>{stringObj.app.header_app_name}</Title>
-          </Body>
-          <Right />
-        </Header>
+        <DefaultHeader navigation={this.props.navigation} />
 
         <Grid>
           <Row style={styles.screenHeader}>
@@ -162,7 +152,7 @@ class PurchaseList extends Component {
           </Row>
         </Grid>
 
-
+        <MainFooter navigation={this.props.navigation} />
       </Container>
     );
   }

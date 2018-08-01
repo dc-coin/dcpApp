@@ -9,7 +9,6 @@ import {
   Badge
 } from "native-base";
 
-import styles from "./styles";
 import stringObj from "../../18n";
 
 class ContentFooter extends Component {
@@ -73,7 +72,7 @@ class ContentFooter extends Component {
     return (
       <Footer>
         <FooterTab>
-          <Button active={this.state.tab1} onPress={() => this.toggleTab1()}>
+          <Button active={this.state.tab1} onPress={this.props.onViewerSetting}>
             <Icon active={this.state.tab1} name="settings" />
             <Text style={{ fontSize: 9 }}>{stringObj.footer.content.setting}</Text>
           </Button>
@@ -84,7 +83,7 @@ class ContentFooter extends Component {
             </Badge>
             <Text style={{ fontSize: 9 }}>{stringObj.footer.content.reply}</Text>
           </Button>
-          <Button active={this.state.tab3} onPress={() => this.toggleTab3()}>
+          <Button active={this.state.tab3} onPress={() => this.props.navigation.goBack()}>
             <Icon active={this.state.tab3} name="arrow-dropleft" />
             <Text style={{ fontSize: 9 }}>{stringObj.footer.content.prev}</Text>
           </Button>
@@ -101,6 +100,10 @@ class ContentFooter extends Component {
     );
   }
 }
+
+ContentFooter.defaultProps = {
+  onViewerSetting: () => { console.error("onViewerSetting function not defined"); }
+};
 
 var styles2 = StyleSheet.create({
   overlay: {

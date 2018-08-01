@@ -42,6 +42,19 @@ export default {
 
     viewer : {
       warningText : "이 작품은 픽션입니다. 실제의 인물,사건,지명,판례, 법령등과는 전혀 무관한 순수 창작물 입니다."
+    },
+
+    viewerSetting : {
+      setLanguage:"언어설정",
+      viewerType:"보기형태",
+      viewerTypePage:"페이지형태",
+      viewerTypeScroll:"스크롤형태",
+      fontStyle:"글자체",
+      fontStyle1:"나눔명조",
+      fontStyle2:"나눔고딕",
+      fontStyleDefault:"기본",
+      fontSize:"폰트크기",      
+      lineHeight:"줄간격",
     }
 
   },

@@ -26,7 +26,7 @@ const Drawer = createDrawerNavigator(
   },
   {
     //initialRouteName: "Home",
-    initialRouteName: "ContentView",    
+    initialRouteName: "Home",    
     
     contentOptions: {
       activeTintColor: "#e91e63"

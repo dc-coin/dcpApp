@@ -18,16 +18,16 @@ export default class SubTab extends Component {
       <Tabs
         renderTabBar={() => <ScrollableTab style={{height:40}}/>}>
         <Tab heading={stringObj.main.cate2.ranking}>
-          <TabOne />
+          <TabOne navigation={this.props.navigation}/>
         </Tab>
         <Tab heading={stringObj.main.cate2.favorite}>
-          <TabOne />
+          <TabOne navigation={this.props.navigation}/>
         </Tab>
         <Tab heading={stringObj.main.cate2.today}>
-          <TabOne />
+          <TabOne navigation={this.props.navigation}/>
         </Tab>
         <Tab heading={stringObj.main.cate2.genre}>
-          <TabOne />
+          <TabOne navigation={this.props.navigation}/>
         </Tab>        
       </Tabs>
     );

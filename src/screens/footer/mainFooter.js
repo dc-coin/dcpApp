@@ -71,7 +71,7 @@ class MainFooter extends Component {
     return (
       <Footer>
         <FooterTab>
-          <Button active={this.state.tab1} onPress={() => this.toggleTab1()}>
+          <Button active={this.state.tab1} onPress={() => this.props.navigation.goBack()}>
             <Icon active={this.state.tab1} name="arrow-dropleft" />
             <Text style={{fontSize: 9}}>{stringObj.footer.main.prev}</Text>
           </Button>
@@ -79,7 +79,7 @@ class MainFooter extends Component {
             <Icon active={this.state.tab2} name="arrow-dropright" />
             <Text style={{fontSize: 9}}>{stringObj.footer.main.next}</Text>
           </Button>
-          <Button active={this.state.tab3} onPress={() => this.props.navigation.navigate("home")}>
+          <Button active={this.state.tab3} onPress={() => this.props.navigation.navigate("Home")}>
             <Icon active={this.state.tab3} name="home" />
             <Text style={{fontSize: 9}}>{stringObj.footer.main.main}</Text>
           </Button>

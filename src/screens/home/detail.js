@@ -19,44 +19,50 @@ const datas = [
   {
     num : 1,
     img: pratik,
-    text: "Kumar Pratik",
-    note: "Its time to build a difference . .",
-    time: "3:43 pm"
+    text: "콘텐츠 타이틀1",
+    note: "34. 콘텐츠 소제목",
+    times : 21,
+    date : "2018-05-21"
   },
   {
     num : 2,
     img: sanket,
-    text: "Kumar Sanket",
-    note: "One needs courage to be happy and smiling all time . . ",
-    time: "1:12 pm"
+    text: "콘텐츠 타이틀2",
+    note: "3. 콘텐츠 소제목 콘텐츠 소제목 콘텐츠 소제목",
+    times : 95,
+    date : "2018-05-24"
   },
   {
     num : 3,
     img: megha,
-    text: "Megha",
-    note: "Live a life style that matchs your vision",
-    time: "10:03 am"
+    text: "콘텐츠 타이틀1",
+    note: "36. 콘텐츠 소제목",
+    times : 57,
+    date : "2018-05-30"
   },
   {
     num : 4,
     img: atul,
-    text: "Atul Ranjan",
-    note: "Failure is temporary, giving up makes it permanent",
-    time: "5:47 am"
+    text: "콘텐츠 타이틀2",
+    note: "4. 콘텐츠 소제목 콘텐츠 소제목 콘텐츠 소제목",
+    times : 55,
+    date : "2018-06-12"
   },
   {
     num : 5,
     img: saurabh,
-    text: "Saurabh Sahu",
-    note: "The biggest risk is a missed opportunity !!",
-    time: "11:11 pm"
+    text: "콘텐츠 타이틀1",
+    note: "37. 콘텐츠 소제목",
+    times : 86,
+    date : "2018-06-25"
   },
   {
     num : 6,
     img: varun,
-    text: "Varun Sahu",
-    note: "Wish I had a Time machine . .",
-    time: "8:54 pm"
+    text: "콘텐츠 타이틀1",
+    note: "38. 콘텐츠 소제목",
+    times : 5,
+    date : "2018-06-30"
   }
 ];
 
@@ -66,7 +72,7 @@ export default class TabOne extends Component {
       <List
           dataArray={datas}
           renderRow={data =>
-          <ListItem thumbnail>
+          <ListItem thumbnail onPress={() => this.props.navigation.push("ContentDetail")}>
             <Left>
               <Text note style={{paddingRight: 10}}>{data.num}</Text>
               <Thumbnail square source={data.img} />
@@ -75,22 +81,8 @@ export default class TabOne extends Component {
               <Text note>장르</Text>
               <Text numberOfLines={1}>{data.text}</Text>
               <Text numberOfLines={1} note>{data.note}</Text>
-              <Text note style={{fontSize: 10}}>총 00회 | 2018-06-28</Text>
+              <Text note style={{fontSize: 10}}>총 {data.times}회 | {data.date}</Text>
             </Body> 
-            
-            {/*
-             
-            <Grid>
-              <Col size={0.1}><Text note>{data.num}</Text></Col>
-              <Col size={0.3}><Thumbnail square source={data.img}/></Col>
-              <Col size={0.6} style={{alignItems: 'left'}}>
-                <Text note style={{textAlign: 'left'}}>장르</Text>
-                <Text numberOfLines={1} style={{textAlign: 'left'}}>{data.text}</Text>
-                <Text numberOfLines={1} note style={{textAlign: 'left'}}>{data.note}</Text>
-                <Text note style={{textAlign: 'left'}}>총 00회 | 2018-06-28</Text>
-              </Col>
-            </Grid>
-            */}
           </ListItem>}
         />
     );

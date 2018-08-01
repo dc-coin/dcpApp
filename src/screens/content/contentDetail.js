@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { Image, Dimensions } from "react-native";
 import {
-  Container, Header, Content, List, ListItem, Text, View,
-  Left, Right, Button, Title, Body, Icon,
-  Form, Item, Input, Thumbnail,
-  H3
+  Container, Content, 
+  List, ListItem,
+  Text, View, Button, Icon, H3
 } from "native-base";
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
+import { DefaultHeader } from './../header';
+import { MainFooter } from "../footer";
+
 import styles from "./contentDetailStyles";
 import stringObj from "../../18n/";
-
 
 const contentData = {
   title: "콘텐츠 타이틀"
@@ -79,20 +80,7 @@ class ContentDetail extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <Header>
-          <Left>
-            <Button
-              transparent
-              onPress={() => this.props.navigation.openDrawer()}
-            >
-              <Icon name="menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>{stringObj.app.header_app_name}</Title>
-          </Body>
-          <Right />
-        </Header>
+        <DefaultHeader navigation={this.props.navigation} />
 
         <Content>
           <Grid>
@@ -114,12 +102,13 @@ class ContentDetail extends Component {
                 </View>
               </Col>
             </Row>
+
             <Row 
               style={{
               marginHorizontal: 5, paddingBottom: 5,
               borderBottomColor: '#9e9e9e', borderBottomWidth: 1
             }}>
-              <Col style={{ width: 120 }} onPress={() => this.props.navigation.navigate("ContentView")}>
+              <Col style={{ width: 120 }} onPress={() => this.props.navigation.push("ContentView")}>
                 <Image
                   style={{
                     alignSelf: "center",
@@ -131,7 +120,7 @@ class ContentDetail extends Component {
                   }}
                   source={thumb} />
               </Col>
-              <Col onPress={() => this.props.navigation.navigate("ContentView")}>
+              <Col onPress={() => this.props.navigation.push("ContentView")}>
                 <Text note>장르</Text>
                 <Text numberOfLines={1}>콘텐츠 타이틀</Text>
                 <Text numberOfLines={1} note>작가명</Text>
@@ -139,6 +128,7 @@ class ContentDetail extends Component {
                 <Text note>선호 00,0000  추천 000,000</Text>
               </Col>
             </Row>
+
             <Row style={{
               marginTop: 5, paddingBottom: 5,
               borderBottomColor: '#9e9e9e', borderBottomWidth: 1
@@ -164,6 +154,8 @@ class ContentDetail extends Component {
                 </Grid>
               </View>
             </Row>
+
+
             <Row>
               <List
                 dataArray={datas}
@@ -198,6 +190,8 @@ class ContentDetail extends Component {
 
           </Grid>
         </Content>
+
+        <MainFooter navigation={this.props.navigation} />
 
       </Container >
     );

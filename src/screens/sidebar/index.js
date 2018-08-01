@@ -46,13 +46,7 @@ const datas = [
     route: "ContentDetail",
     icon: "document",
     bg: "#C5F442"
-  },
-  {
-    name: "콘텐츠설정",
-    route: "ContentSetting",
-    icon: "document",
-    bg: "#C5F442"
-  },
+  },  
   {
     name: "콘텐츠뷰어",
     route: "ContentView",

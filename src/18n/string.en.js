@@ -43,7 +43,21 @@ export default {
 
     viewer : {
       warningText : "This work is fiction. It is a pure creation that has nothing to do with actual person, event, place name, precedent laws and so on."
+    },
+
+    viewerSetting : {
+      setLanguage:"Language",
+      viewerType:"Viewer Type",
+      viewerTypePage:"Page",
+      viewerTypeScroll:"Scroll",
+      fontStyle:"Font Style",
+      fontStyle1:"Arial",
+      fontStyle2:"Courier",
+      fontStyleDefault:"Default",
+      fontSize:"Font Size",      
+      lineHeight:"Line Height",
     }
+
   },
 
   purchaseList: {
