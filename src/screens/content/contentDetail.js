@@ -114,11 +114,12 @@ class ContentDetail extends Component {
                 </View>
               </Col>
             </Row>
-            <Row style={{
+            <Row 
+              style={{
               marginHorizontal: 5, paddingBottom: 5,
               borderBottomColor: '#9e9e9e', borderBottomWidth: 1
             }}>
-              <Col style={{ width: 120 }}>
+              <Col style={{ width: 120 }} onPress={() => this.props.navigation.navigate("ContentView")}>
                 <Image
                   style={{
                     alignSelf: "center",
@@ -130,7 +131,7 @@ class ContentDetail extends Component {
                   }}
                   source={thumb} />
               </Col>
-              <Col>
+              <Col onPress={() => this.props.navigation.navigate("ContentView")}>
                 <Text note>장르</Text>
                 <Text numberOfLines={1}>콘텐츠 타이틀</Text>
                 <Text numberOfLines={1} note>작가명</Text>

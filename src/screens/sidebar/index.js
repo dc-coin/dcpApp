@@ -55,7 +55,7 @@ const datas = [
   },
   {
     name: "콘텐츠뷰어",
-    route: "ContentViewer",
+    route: "ContentView",
     icon: "document",
     bg: "#C5F442"
   },  

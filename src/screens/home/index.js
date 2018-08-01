@@ -14,7 +14,7 @@ import styles from "./styles";
 import stringObj from "../../18n";
 
 import TabCateBest from "./tabs";
-import Footer from "../footer";
+import {MainFooter} from "../footer";
 
 class Home extends Component {
   constructor(props) {
@@ -65,7 +65,7 @@ class Home extends Component {
           </Row>
         </Grid>
 
-        <Footer navigation={this.props.navigation}/>
+        <MainFooter navigation={this.props.navigation}/>
       </Container>
     );
   }

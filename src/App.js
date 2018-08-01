@@ -6,7 +6,7 @@ import Home from "./screens/home/";
 import SideBar from "./screens/sidebar";
 import Setting from "./screens/setting";
 
-import {ContentDetail} from "./screens/content";
+import {ContentDetail, ContentView} from "./screens/content";
 import PurchaseList from "./screens/purchaseList";
 import SalesList from "./screens/salesList";
 import MusicSearchES from "./screens/music";
@@ -16,6 +16,7 @@ const Drawer = createDrawerNavigator(
     Home: { screen: Home },
 
     ContentDetail : {screen: ContentDetail},
+    ContentView : {screen: ContentView},
     PurchaseList : {screen: PurchaseList},
     SalesList : {screen: SalesList},
     Setting : {screen: Setting},
@@ -25,7 +26,7 @@ const Drawer = createDrawerNavigator(
   },
   {
     //initialRouteName: "Home",
-    initialRouteName: "Home",    
+    initialRouteName: "ContentView",    
     
     contentOptions: {
       activeTintColor: "#e91e63"
@@ -41,6 +42,7 @@ const AppNavigator = createStackNavigator(
     Home : {screen: Home},
 
     ContentDetail : {screen: ContentDetail},
+    ContentView : {screen: ContentView},
     PurchaseList : {screen: PurchaseList},
     SalesList : {screen: SalesList},
     Setting : {screen: Setting},
