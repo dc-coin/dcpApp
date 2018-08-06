@@ -1,6 +1,6 @@
 const React = require("react-native");
 const { Dimensions, Platform } = React;
-const deviceHeight = Dimensions.get("window").height;
+const { width, height } = Dimensions.get('window');
 
 //Platform.
 
@@ -8,17 +8,19 @@ export default {
   container: {
     backgroundColor: "#FFF"
   },
-  screenHeader : {
-    height : 40,
-    marginTop : 10
+  descOverlay: {
+    //flex: 1,
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    opacity: 0.5,
+    backgroundColor: 'black',
+    width: width
   },
-  screenTitle : {
-    marginTop : 10,
-    marginLeft : 20
-  },
-  screenTitleRight : {
-    marginTop: 5,    
-    marginRight : 10,
-    width:110
-  },
+  descOverlayText: {
+    color: "#fff",
+    marginHorizontal: 20,
+    marginVertical: 10
+  }
+
 };

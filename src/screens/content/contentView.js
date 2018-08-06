@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Image, Dimensions, StyleSheet, View } from "react-native";
+import { Image, View } from "react-native";
 import Modal from "react-native-modal";
 import {
   Container, Content, Text
 } from "native-base";
-import { Col, Row, Grid } from 'react-native-easy-grid';
 
-import { DefaultHeader, ContentHeader } from './../header';
+import { ContentHeader } from '../header';
 import { ContentFooter } from "../footer";
 import ViewerSetting from "./viewerSetting";
 
@@ -14,12 +13,11 @@ import styles from "./contentViewStyles";
 import stringObj from "../../18n/";
 
 const contentData = {
-  title: "콘텐츠 타이틀"
+  title: "콘텐츠 타이틀",
+  subTitle : "콘덴츠 소제목"
 };
 
 const thumb = require("../../../assets/drawer-cover.png");
-
-var { width, height } = Dimensions.get('window');
 
 class ContentView extends Component {
   constructor(props) {
@@ -35,9 +33,8 @@ class ContentView extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <DefaultHeader navigation={this.props.navigation} />
         <ContentHeader navigation={this.props.navigation}
-          title="콘덴츠 소제목" subTitle="콘텐츠 타이틀" />
+          title={contentData.subTitle} subTitle={contentData.title} />
 
         <Content>
           <Image
@@ -53,9 +50,9 @@ class ContentView extends Component {
             }}
             source={thumb} />
 
-          <View style={[styles2.overlay]}>
+          <View style={styles.descOverlay}>
             <Content>
-              <Text style={{ color: "#fff", marginHorizontal: 10, marginVertical: 10 }}
+              <Text style={styles.descOverlayText}
               >{stringObj.content.viewer.warningText}</Text>
             </Content>
           </View>
@@ -78,17 +75,5 @@ class ContentView extends Component {
     );
   }
 }
-
-var styles2 = StyleSheet.create({
-  overlay: {
-    //flex: 1,
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    opacity: 0.5,
-    backgroundColor: 'black',
-    width: width
-  }
-});
 
 export default ContentView;

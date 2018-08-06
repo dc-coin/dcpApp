@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import { Image, Dimensions } from "react-native";
+import { Image } from "react-native";
+import Modal from "react-native-modal";
 import {
-  Container, Content, 
+  Container, Content,
   List, ListItem,
   Text, View, Button, Icon, H3
 } from "native-base";
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
-import { DefaultHeader } from './../header';
+import { DefaultHeader } from '../header';
 import { MainFooter } from "../footer";
+import PaymentAll from "./paymentAll";
 
 import styles from "./contentDetailStyles";
 import stringObj from "../../18n/";
@@ -43,8 +45,8 @@ const datas = [
   {
     cate: "none",
     title: "92. 콘텐츠 소제목",
-    tagName: "구매안됨",
-    tagClass: "success",
+    tagName: "구매됨",
+    tagClass: "info",
     readCount: "6,512",
     recommend: "1,576",
     commentCount: "32",
@@ -75,6 +77,10 @@ const datas = [
 class ContentDetail extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      isPaymentAllModalVisible: false
+    };
   }
 
   render() {
@@ -103,12 +109,12 @@ class ContentDetail extends Component {
               </Col>
             </Row>
 
-            <Row 
+            <Row
               style={{
-              marginHorizontal: 5, paddingBottom: 5,
-              borderBottomColor: '#9e9e9e', borderBottomWidth: 1
-            }}>
-              <Col style={{ width: 120 }} onPress={() => this.props.navigation.push("ContentView")}>
+                marginHorizontal: 5, paddingBottom: 5,
+                borderBottomColor: '#9e9e9e', borderBottomWidth: 1
+              }}>
+              <Col style={{ width: 120 }}>
                 <Image
                   style={{
                     alignSelf: "center",
@@ -120,7 +126,7 @@ class ContentDetail extends Component {
                   }}
                   source={thumb} />
               </Col>
-              <Col onPress={() => this.props.navigation.push("ContentView")}>
+              <Col>
                 <Text note>장르</Text>
                 <Text numberOfLines={1}>콘텐츠 타이틀</Text>
                 <Text numberOfLines={1} note>작가명</Text>
@@ -143,11 +149,11 @@ class ContentDetail extends Component {
                       <Text style={{ fontSize: 13 }}>일괄구매 98DP</Text>
                     </View>
                   </Col>
-                  <Col style={{ width: 140, flexDirection: "row", justifyContent: "space-between", alignSelf: "center" }}>
-                    <Button small>
+                  <Col style={{ width: 70, flexDirection: "row", justifyContent: "space-between", alignSelf: "center" }}>
+                    {/* <Button small>
                       <Text>선택구매</Text>
-                    </Button>
-                    <Button small danger>
+                    </Button> */}
+                    <Button small danger onPress={()=>this.setState({ isPaymentAllModalVisible: true })}>
                       <Text>일괄구매</Text>
                     </Button>
                   </Col>
@@ -162,22 +168,23 @@ class ContentDetail extends Component {
                 renderRow={(data, sectionID, rowID, highlightRow) => {
                   var bg = data.cate === "notice" ? '#ddeaf6' : undefined;
                   var btnColor = data.tagClass === "success" ? "#5cb85c" : "#3F51B5";
+                  var nextPage = data.tagClass === "success" ? "ContentPayment" : "ContentView";
                   return (
                     <ListItem style={[{ backgroundColor: bg }, styles.resultListItem]}>
-                      <Grid>
-                        <Col style={{marginLeft:10}}>
+                      <Grid style={{ marginLeft: 10 }}>
+                        <Col onPress={data.cate === "notice" ? undefined : () => this.props.navigation.push(nextPage)}>
                           <Row>
                             <Text numberOfLines={1}>{data.title}</Text>
                           </Row>
                           <Row style={{}}>
-                            <Button small bordered style={[{ height: 12, marginTop:3, marginRight:5}, {borderColor:btnColor}]} >
-                              <Text style={{ fontSize: 8, color:btnColor }}>{data.tagName}</Text>
+                            <Button small bordered style={[{ height: 12, marginTop: 3, marginRight: 5 }, { borderColor: btnColor }]} >
+                              <Text style={{ fontSize: 8, color: btnColor }}>{data.tagName}</Text>
                             </Button>
                             <Text note numberOfLines={1}>{data.time} 조회 {data.readCount} | 추천 {data.recommend}</Text>
                           </Row>
                         </Col>
                         <Col style={{ width: 50, alignItems: 'flex-end', alignSelf: 'center', flexDirection: 'row-reverse' }}>
-                          <Button small bordered style={[{ height: 24}]}>
+                          <Button small bordered style={[{ height: 24 }]}>
                             <Text>{data.commentCount}</Text>
                           </Button>
                         </Col>
@@ -187,8 +194,17 @@ class ContentDetail extends Component {
                 }
               />
             </Row>
-
           </Grid>
+
+          <Modal
+            isVisible={this.state.isPaymentAllModalVisible}
+            animationInTiming={200}
+            animationOutTiming={200}
+            onBackdropPress={() => this.setState({ isPaymentAllModalVisible: false })}>
+            <PaymentAll
+              onClose={() => this.setState({ isPaymentAllModalVisible: false })} />
+          </Modal>
+
         </Content>
 
         <MainFooter navigation={this.props.navigation} />
