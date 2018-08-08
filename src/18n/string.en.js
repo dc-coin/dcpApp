@@ -56,6 +56,13 @@ export default {
       fontStyleDefault:"Default",
       fontSize:"Font Size",      
       lineHeight:"Line Height",
+    },
+
+    payment : {
+      desc : "Not purchased contents.",
+      myPoint : "My Point",
+      btnBuy : "Purchase Contents",
+      btnPointCharge : "Charge Point"
     }
 
   },

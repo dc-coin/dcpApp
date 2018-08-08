@@ -35,10 +35,10 @@ class ContentBuy extends Component {
 
         <Content style={styles.opacityBackground}>
           <View style={styles.panelView}>
-            <Text style={[{ fontSize: 20},styles.descText, styles.whiteText]}>구매하지 않은 작품입니다.</Text>
+            <Text style={[{ fontSize: 20},styles.descText, styles.whiteText]}>{stringObj.content.payment.desc}</Text>
 
             <View style={styles.circleView}>
-              <Text style={[{ fontSize: 20}, styles.whiteText, styles.myPointText]}> 내 보유 포인트 </Text>
+              <Text style={[{ fontSize: 20}, styles.whiteText, styles.myPointText]}>{stringObj.content.payment.myPoint}</Text>
               <Text style={[{ fontSize: 30}, styles.whiteText]}>10,000</Text>
               <Text style={[{ fontSize: 16}, styles.whiteText]}> DP</Text>
             </View>
@@ -48,14 +48,14 @@ class ContentBuy extends Component {
                 style={[styles.buttonGroups, {flex:2}]}
                 rounded={false}
               >
-                <Text style={{fontSize:16}}>작품구매하기</Text>
+                <Text style={{fontSize:16}}>{stringObj.content.payment.btnBuy}</Text>
               </Button>
               <Button
                 style={[styles.buttonGroups, {flex:1}]}
                 rounded={false}
                 bordered={true}
               >
-                <Text style={{fontSize:16}}>포인트 충전</Text>
+                <Text style={{fontSize:16}}>{stringObj.content.payment.btnPointCharge}</Text>
               </Button>
             </View>
           </View>

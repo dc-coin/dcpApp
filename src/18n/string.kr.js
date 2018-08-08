@@ -55,6 +55,13 @@ export default {
       fontStyleDefault:"기본",
       fontSize:"폰트크기",      
       lineHeight:"줄간격",
+    },
+
+    payment : {
+      desc : "구매하지 않은 작품입니다.",
+      myPoint : "내 보유 포인트",
+      btnBuy : "작품구매하기",
+      btnPointCharge : "포인트 충전"
     }
 
   },
