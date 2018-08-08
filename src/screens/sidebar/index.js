@@ -1,21 +1,14 @@
 import React, { Component } from "react";
-import { Image } from "react-native";
+import { Image, View } from "react-native";
 import stringObj from "../../18n/";
 import {
-  Content,
-  Text,
-  List,
-  ListItem,
-  Icon,
-  Container,
-  Left,
-  Right,
-  Badge
+  Container, Content,
+  List, ListItem, Button,
+  Icon, Text,
+  Left, Right
 } from "native-base";
 import styles from "./style";
 
-const drawerCover = require("../../../assets/drawer-cover.png");
-const drawerImage = require("../../../assets/logo-kitchen-sink.png");
 const datas = [
   {
     name: "홈",
@@ -46,13 +39,13 @@ const datas = [
     route: "ContentDetail",
     icon: "document",
     bg: "#C5F442"
-  },  
+  },
   {
     name: "콘텐츠뷰어",
     route: "ContentView",
     icon: "document",
     bg: "#C5F442"
-  },  
+  },
   {
     name: stringObj.sidebar.menu_0100,
     route: "PurchaseList",
@@ -64,7 +57,7 @@ const datas = [
     route: "SalesList",
     icon: "document",
     bg: "#C5F442"
-  },  
+  },
   {
     name: stringObj.sidebar.menu_0200,
     route: "PurchaseList",
@@ -101,228 +94,186 @@ const datas = [
     icon: "star",
     bg: "#C5F442"
   },
-  // {
-  //   name: "Header",
-  //   route: "Header",
-  //   icon: "arrow-up",
-  //   bg: "#477EEA",
-  //   types: "11"
-  // },
-  // {
-  //   name: "Footer",
-  //   route: "Footer",
-  //   icon: "arrow-down",
-  //   bg: "#DA4437",
-  //   types: "4"
-  // },
-  // {
-  //   name: "Accordion",
-  //   route: "NHAccordion",
-  //   icon: "repeat",
-  //   bg: "#C5F442",
-  //   types: "5"
-  // },
-  // {
-  //   name: "Actionsheet",
-  //   route: "Actionsheet",
-  //   icon: "easel",
-  //   bg: "#C5F442"
-  // },
-  // {
-  //   name: "Badge",
-  //   route: "NHBadge",
-  //   icon: "notifications",
-  //   bg: "#4DCAE0"
-  // },
-  // {
-  //   name: "Button",
-  //   route: "NHButton",
-  //   icon: "radio-button-off",
-  //   bg: "#1EBC7C",
-  //   types: "9"
-  // },
-  // {
-  //   name: "Card",
-  //   route: "NHCard",
-  //   icon: "keypad",
-  //   bg: "#B89EF5",
-  //   types: "8"
-  // },
-  // {
-  //   name: "Check Box",
-  //   route: "NHCheckbox",
-  //   icon: "checkmark-circle",
-  //   bg: "#EB6B23"
-  // },
-  // {
-  //   name: "Date Picker",
-  //   route: "NHDatePicker",
-  //   icon: "calendar",
-  //   bg: "#EB6B23"
-  // },
-  // {
-  //   name: "Deck Swiper",
-  //   route: "NHDeckSwiper",
-  //   icon: "swap",
-  //   bg: "#3591FA",
-  //   types: "2"
-  // },
-  // {
-  //   name: "Fab",
-  //   route: "NHFab",
-  //   icon: "help-buoy",
-  //   bg: "#EF6092",
-  //   types: "2"
-  // },
-  // {
-  //   name: "Form & Inputs",
-  //   route: "NHForm",
-  //   icon: "call",
-  //   bg: "#EFB406",
-  //   types: "12"
-  // },
-  // {
-  //   name: "Icon",
-  //   route: "NHIcon",
-  //   icon: "information-circle",
-  //   bg: "#bfe9ea",
-  //   types: "4"
-  // },
-  // {
-  //   name: "Layout",
-  //   route: "NHLayout",
-  //   icon: "grid",
-  //   bg: "#9F897C",
-  //   types: "5"
-  // },
-  // {
-  //   name: "List",
-  //   route: "NHList",
-  //   icon: "lock",
-  //   bg: "#5DCEE2",
-  //   types: "8"
-  // },
-  // {
-  //   name: "ListSwipe",
-  //   route: "ListSwipe",
-  //   icon: "code-working",
-  //   bg: "#C5F442",
-  //   types: "3"
-  // },
-  // {
-  //   name: "Picker",
-  //   route: "NHPicker",
-  //   icon: "arrow-dropdown",
-  //   bg: "#F50C75"
-  // },
-  // {
-  //   name: "Radio",
-  //   route: "NHRadio",
-  //   icon: "radio-button-on",
-  //   bg: "#6FEA90"
-  // },
-  // {
-  //   name: "SearchBar",
-  //   route: "NHSearchbar",
-  //   icon: "search",
-  //   bg: "#29783B"
-  // },
-  // {
-  //   name: "Segment",
-  //   route: "Segment",
-  //   icon: "menu",
-  //   bg: "#0A2C6B",
-  //   types: "3"
-  // },
-  // {
-  //   name: "Spinner",
-  //   route: "NHSpinner",
-  //   icon: "navigate",
-  //   bg: "#BE6F50"
-  // },
-  // {
-  //   name: "Tabs",
-  //   route: "NHTab",
-  //   icon: "home",
-  //   bg: "#AB6AED",
-  //   types: "3"
-  // },
-  // {
-  //   name: "Thumbnail",
-  //   route: "NHThumbnail",
-  //   icon: "image",
-  //   bg: "#cc0000",
-  //   types: "2"
-  // },
-  // {
-  //   name: "Toast",
-  //   route: "NHToast",
-  //   icon: "albums",
-  //   bg: "#C5F442",
-  //   types: "6"
-  // },
-  // {
-  //   name: "Typography",
-  //   route: "NHTypography",
-  //   icon: "paper",
-  //   bg: "#48525D"
-  // }
+
 ];
 
 class SideBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      tabIndex: 2,
+
       shadowOffsetWidth: 1,
       shadowRadius: 4
     };
+
+    this._randerAllMenu = this._randerAllMenu.bind(this);
+    this._randerMyMenu = this._randerMyMenu.bind(this);
+  }
+
+  _randerAllMenu() {
+    return (
+      <List style={{ height: this.state.tabIndex === 2 ? 0 : undefined }}>
+        <ListItem itemDivider style={styles.allMenuDivider}>
+          <Text style={styles.allMenuDividerText}>최근 감상 작품</Text>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton]}
+          ><Text style={styles.allMenuButtonText}>최근 본 작품</Text></Button>
+        </ListItem>
+
+        <ListItem itemDivider style={styles.allMenuDivider}>
+          <Text style={styles.allMenuDividerText}>베스트</Text>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonLeft]}>
+            <Text style={styles.allMenuButtonText}>골든 베스트</Text></Button>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonRight]}>
+            <Text style={styles.allMenuButtonText}>선호작 베스트</Text></Button>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonLeft, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}>투데이 베스트</Text></Button>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonRight, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}>카테고리별 베스트</Text></Button>
+        </ListItem>
+
+        <ListItem itemDivider style={styles.allMenuDivider}>
+          <Text style={styles.allMenuDividerText}>유료</Text>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonLeft, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}>연재 작품</Text></Button>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonRight, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}>완결 작품</Text></Button>
+        </ListItem>
+
+        <ListItem itemDivider style={styles.allMenuDivider}>
+          <Text style={styles.allMenuDividerText}>무료</Text>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonLeft, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}>연재 작품</Text></Button>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonRight, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}>완결 작품</Text></Button>
+        </ListItem>
+
+        <ListItem itemDivider style={styles.allMenuDivider}>
+          <Text style={styles.allMenuDividerText}>독자마당</Text>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonLeft]}>
+            <Text style={styles.allMenuButtonText}>추천하기</Text></Button>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonRight]}>
+            <Text style={styles.allMenuButtonText}>감상문</Text></Button>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonLeft]}>
+            <Text style={styles.allMenuButtonText}>자료실</Text></Button>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonRight]}>
+            <Text style={styles.allMenuButtonText}>질문/답변</Text></Button>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonLeft, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}>자유홍보</Text></Button>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonRight, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}></Text></Button>
+        </ListItem>
+
+        <ListItem itemDivider style={styles.allMenuDivider}>
+          <Text style={styles.allMenuDividerText}>고객지원</Text>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonLeft]}>
+            <Text style={styles.allMenuButtonText}>공지사항</Text></Button>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonRight]}>
+            <Text style={styles.allMenuButtonText}>불펌신고</Text></Button>
+        </ListItem>
+        <ListItem noBorder style={styles.allMenuButtonListItem}>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonLeft, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}>FAQ</Text></Button>
+          <Button style={[styles.allMenuButton, styles.allMenuButtonRight, styles.allMenuButtonLast]}>
+            <Text style={styles.allMenuButtonText}>연재신청</Text></Button>
+        </ListItem>
+
+      </List>
+    );
+  }
+
+  _randerMyMenu() {
+    return (
+      <View style={[styles.myMenuView, {height: this.state.tabIndex === 1 ? 0 : undefined}]}>
+        <View style={styles.userView}>
+          <View style={styles.userIds}>
+            <Text style={[styles.userNicknameText]}>닉네임</Text>
+            <Text style={[styles.userIdText]}>ID</Text>
+          </View>
+          <View style={styles.userButtons}>
+            <Button style={styles.btnWallet}>
+              <Text>  지갑  </Text></Button>
+            <Button light style={styles.btnLogout}>
+              <Text style={styles.blueText}>로그아웃</Text></Button>
+          </View>
+        </View>
+        <View style={styles.descCoinView}>
+          <View style={styles.descCoin}>
+            <Text style={[styles.descCoinText, styles.blueText]}>총 코인</Text>
+            <Text style={[styles.descCoinText]}>구매한 코인</Text>
+            <Text style={[styles.descCoinText, styles.blueText]}>판매한 코인</Text>
+          </View>
+          <View style={styles.descCoin}>
+            <Text style={[styles.descCoinText, styles.blueText]}>10,700 DP</Text>
+            <Text style={[styles.descCoinText]}>10,000 DP</Text>
+            <Text style={[styles.descCoinText, styles.blueText]}>700 DP</Text>
+          </View>
+        </View>
+
+        <List
+          dataArray={datas}
+          renderRow={data =>
+            <ListItem button noBorder
+              onPress={() => this.props.navigation.navigate(data.route)}
+              style={styles.myMenuButtonListItem}
+            >
+              <Left>
+                <Text style={[styles.myMenuButtonText]}>{data.name}</Text>
+              </Left>
+              <Right>
+                <Icon name="arrow-forward" style={[styles.whiteText]} />
+              </Right>
+            </ListItem>}
+        />
+      </View>);
   }
 
   render() {
     return (
       <Container>
+        <View style={{
+          width: "100%", flexDirection: "row", justifyContent: "center", backgroundColor: '#595959',
+        }}>
+          <Button
+            rounded={false}
+            style={[styles.topButton,
+            this.state.tabIndex === 1 ? styles.topButtonActive : styles.topButtonInActive]}
+            onPress={() => { this.setState({ tabIndex: 1 }) }}
+
+          ><Text style={{ fontSize: 16 }}>전체메뉴</Text></Button>
+          <Button
+            rounded={false}
+            style={[styles.topButton,
+            this.state.tabIndex === 2 ? styles.topButtonActive : styles.topButtonInActive]}
+            onPress={() => { this.setState({ tabIndex: 2 }) }}
+          ><Text style={{ fontSize: 16 }}>내정보</Text></Button>
+        </View>
+
         <Content
           bounces={false}
-          style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
+          style={{ flex: 1, backgroundColor: "#595959", top: 0 }}
         >
-          <Image source={drawerCover} style={styles.drawerCover} />
-          <Image square style={styles.drawerImage} source={drawerImage} />
+          {this._randerAllMenu()}
+          {this._randerMyMenu()}
 
-          <List
-            dataArray={datas}
-            renderRow={data =>
-              <ListItem
-                button
-                noBorder
-                onPress={() => this.props.navigation.navigate(data.route)}
-              >
-                <Left>
-                  <Icon
-                    active
-                    name={data.icon}
-                    style={{ color: "#777", fontSize: 26, width: 30 }}
-                  />
-                  <Text style={styles.text}>
-                    {data.name}
-                  </Text>
-                </Left>
-                {data.types &&
-                  <Right style={{ flex: 1 }}>
-                    <Badge
-                      style={{
-                        borderRadius: 3,
-                        height: 25,
-                        width: 72,
-                        backgroundColor: data.bg
-                      }}
-                    >
-                      <Text
-                        style={styles.badgeText}
-                      >{`${data.types} Types`}</Text>
-                    </Badge>
-                  </Right>}
-              </ListItem>}
-          />
         </Content>
       </Container>
     );
