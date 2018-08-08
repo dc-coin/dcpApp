@@ -172,7 +172,7 @@ class ContentDetail extends Component {
                   return (
                     <ListItem style={[{ backgroundColor: bg }, styles.resultListItem]}>
                       <Grid style={{ marginLeft: 10 }}>
-                        <Col onPress={data.cate === "notice" ? undefined : () => this.props.navigation.push(nextPage)}>
+                        <Col onPress={data.cate === "notice" ? undefined : () => this.props.navigation.navigate(nextPage)}>
                           <Row>
                             <Text numberOfLines={1}>{data.title}</Text>
                           </Row>

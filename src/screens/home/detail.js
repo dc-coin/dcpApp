@@ -72,7 +72,7 @@ export default class TabOne extends Component {
       <List
           dataArray={datas}
           renderRow={data =>
-          <ListItem thumbnail onPress={() => this.props.navigation.push("ContentDetail")}>
+          <ListItem thumbnail onPress={() => this.props.navigation.navigate("ContentDetail")}>
             <Left>
               <Text note style={{paddingRight: 10}}>{data.num}</Text>
               <Thumbnail square source={data.img} />
